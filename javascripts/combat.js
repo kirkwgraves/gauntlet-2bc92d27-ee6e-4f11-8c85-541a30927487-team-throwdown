@@ -24,9 +24,12 @@ $("#spellButton").on("click", function(spellAttack) {
   var enemyResult = Enemy health - player spell
 })
 
+function(enemy_attack) {
+  50/50 chance of melee vs spell
+}
 
+$(document).on
 
-
-
-
+if player health or enemy health <= 0, Winner is character with greatest health > 0, if both characters
+have health <= 0, no winner.
 */

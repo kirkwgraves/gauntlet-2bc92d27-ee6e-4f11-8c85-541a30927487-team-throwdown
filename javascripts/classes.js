@@ -21,6 +21,7 @@ var PlayerClass = function() {
       - Monk
  */
 var Fighter = function() {
+  this.name = "Fighter";
   this.healthBonus = 20;
   this.strengthBonus = 10;
 };
@@ -118,3 +119,19 @@ Sorcerer.prototype = new Mage();
       - Assassin
  */
 // Create Stealth Class properties.
+
+var Shadow = function() {
+  this.name = "Shadow";
+  this.healthBonus = this.healthBonus + 30;
+  this.strengthBonus = this.strengthBonus - 15;
+  this.intelligenceBonus = this.intelligenceBonus + 60;
+ }
+ Shadow.prototype = new PlayerClass();
+
+ var Highwayman = function() {
+  this.name = "Highwayman";
+  this.healthBonus = this.healthBonus + 5;
+  this.strengthBonus = this.strengthBonus 0;
+  this.intelligenceBonus = this.intelligenceBonus + -10;
+ }
+ Highwayman.prototype = new Shadow();
