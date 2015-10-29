@@ -31,6 +31,10 @@ $(document).ready(function() {
     When any button with card__link class is clicked,
     move on to the next view.
    */
+
+   //Make sure users can select weapons
+
+
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     var moveAlong = false;
@@ -60,3 +64,10 @@ $(document).ready(function() {
   });
 
 });
+
+//combat.initiateCombat();
+
+
+
+
+

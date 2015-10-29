@@ -6,7 +6,7 @@ var Player = function(name) {
   this.species = null;
   this.class = null;
   this.weapon = null;
-
+  // create allowedClasses property
   this.playerName = name || "unknown adventurer";
   this.health = Math.floor(Math.random() * 40 + 50);
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
@@ -54,7 +54,7 @@ Player.prototype.generateClass = function() {
 };
 
 /*
-  Define the base properties for a human in a 
+  Define the base properties for a human in a
   constructor function.
  */
 var Human = function() {
@@ -73,7 +73,7 @@ Human.prototype = new Player();
 
 
 /*
-  Define the base properties for a monster in a 
+  Define the base properties for a monster in a
   constructor function.
  */
 var Monster = function() {

@@ -117,4 +117,4 @@ Sorcerer.prototype = new Mage();
       - Ninja
       - Assassin
  */
-
+// Create Stealth Class properties.
