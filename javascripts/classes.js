@@ -124,14 +124,14 @@ var Shadow = function() {
   this.name = "Shadow";
   this.healthBonus = this.healthBonus + 30;
   this.strengthBonus = this.strengthBonus - 15;
-  this.intelligenceBonus = this.intelligenceBonus + 60;
+  this.intelligenceBonus = this.intelligenceBonus + 10;
  }
  Shadow.prototype = new PlayerClass();
 
  var Highwayman = function() {
   this.name = "Highwayman";
-  this.healthBonus = this.healthBonus + 5;
-  this.strengthBonus = this.strengthBonus 0;
-  this.intelligenceBonus = this.intelligenceBonus + -10;
+  this.healthBonus = this.healthBonus + 10;
+  this.strengthBonus = this.strengthBonus + 10;
+  this.intelligenceBonus = this.intelligenceBonus + -15;
  }
  Highwayman.prototype = new Shadow();

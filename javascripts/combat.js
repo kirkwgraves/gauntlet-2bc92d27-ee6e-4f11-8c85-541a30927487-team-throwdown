@@ -1,3 +1,13 @@
+$(document).ready(console.log("testing"));
+ var character = myPlayer;
+ var myEnemy = combatant;
+console.log("This is the player the", character)
+console.log("The is the enemy stats", combatant)
+
+  var enemy;
+
+
+
 /*
 Here is where you type out the combat rules (Math basically, and what have you)
 

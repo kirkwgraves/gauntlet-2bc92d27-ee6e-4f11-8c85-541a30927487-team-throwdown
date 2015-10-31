@@ -38,12 +38,14 @@ $(document).ready(function() {
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     var moveAlong = false;
-
     switch (nextCard) {
       case "card--class":
         moveAlong = ($("#player-name").val() !== "");
         break;
       case "card--weapon":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
+        case "card--battle":
         moveAlong = ($("#player-name").val() !== "");
         break;
     }
