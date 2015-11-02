@@ -120,18 +120,42 @@ Sorcerer.prototype = new Mage();
  */
 // Create Stealth Class properties.
 
-var Shadow = function() {
+ var Shadow = function() {
   this.name = "Shadow";
-  this.healthBonus = this.healthBonus + 30;
+  this.healthBonus = this.healthBonus + 20;
   this.strengthBonus = this.strengthBonus - 15;
-  this.intelligenceBonus = this.intelligenceBonus + 10;
- }
+  this.intelligenceBonus = this.intelligenceBonus + 25;
+ };
  Shadow.prototype = new PlayerClass();
 
- var Highwayman = function() {
+  var Highwayman = function() {
   this.name = "Highwayman";
-  this.healthBonus = this.healthBonus + 10;
-  this.strengthBonus = this.strengthBonus + 10;
-  this.intelligenceBonus = this.intelligenceBonus + -15;
- }
+  this.healthBonus = this.healthBonus + 5;
+  this.strengthBonus = this.strengthBonus - 10;
+  this.intelligenceBonus = this.intelligenceBonus -15;
+ };
  Highwayman.prototype = new Shadow();
+
+var Ninja = function() {
+  this.name = "Ninja";
+  this.healthBonus = this.healthBonus + 15;
+  this.strengthBonus = this.strengthBonus - 5;
+  this.intelligenceBonus = this.intelligenceBonus + 5;
+};
+Ninja.prototype = new Shadow();
+
+var Assassin = function() {
+  this.name = "Assassin";
+  this.healthBonus = this.healthBonus + 10;
+  this.strengthBonus = this.strengthBonus - 5;
+  this.intelligenceBonus = this.intelligenceBonus + 10;
+};
+Assassin.prototype = new Shadow();
+
+var Thief = function() {
+  this.name = "Thief";
+  this.healthBonus = this.healthBonus -10;
+  this.strengthBonus = this.strengthBonus - 10;
+  this.intelligenceBonus = this.intelligenceBonus - 15;
+};
+Thief.prototype = new Shadow();

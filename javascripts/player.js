@@ -6,7 +6,6 @@ var Player = function(name) {
   this.species = null;
   this.class = null;
   this.weapon = null;
-  // create allowedClasses property
   this.playerName = name || "unknown adventurer";
   this.health = Math.floor(Math.random() * 40 + 50);
   this.limbs = ["head", "neck", "arm", "leg", "torso"];
@@ -30,6 +29,7 @@ var Player = function(name) {
       this.weapon.toString(),
       "!"
     ].join("");
+
     return output;
   };
 };
@@ -53,16 +53,20 @@ Player.prototype.generateClass = function() {
   return this.class;
 };
 
+Player.prototype.setClass = function(chosenClass) {
+  this.class = chosenClass;
+}
+
 /*
   Define the base properties for a human in a
   constructor function.
  */
-var Human = function() {
+var Human = function(name) {
   var randomSkin;
 
   this.species = "Human";
   this.intelligence = this.intelligence + 20;
-
+  this.name = name;
   this.skinColors.push("brown", "red", "white", "disease");
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
   this.skinColor = this.skinColors[randomSkin];
