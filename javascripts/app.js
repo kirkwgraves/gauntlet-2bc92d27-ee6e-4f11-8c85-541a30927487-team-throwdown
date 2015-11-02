@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
- 
+"use strict"; 
  //   Show the initial view that accepts player name
   
   var playerPath;
@@ -17,22 +17,29 @@ $(document).ready(function() {
 
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
-    var moveAlong = true;
-    var playerName = $("#player-name").val();
+    var moveAlong = false;
 
     switch (nextCard) {
       case "card--class":
-        
+        var playerName = $("#player-name").val();
+        moveAlong = ($("player-name").val() !== "");
         
         $(".class__link").on("click", function(e) {
           myPlayer = new Human(playerName);
+          console.log('myPlayer', myPlayer);
           if ($.inArray($(this).attr("playerPath"), myPlayer.allowedClasses) !== -1) {
             myPlayer.setClass($(this).attr("playerPath"));
-          }  
-            console.log('myPlayer', myPlayer);
+          }
+
+          myPlayer.health += myPlayer.class.healthBonus;
+          myPlayer.strength += myPlayer.class.strengthBonus;
+          myPlayer.intelligence += myPlayer.class.intelligenceBonus;
+          
+          console.log("myPlayer with class", myPlayer);
+          console.log("new Health", myPlayer.health);  
+          
           if ($(this).attr("playerPath") === "surprise") {
             myPlayer.generateClass();
-            console.log('myPlayer', myPlayer);
           }
         });
         break;

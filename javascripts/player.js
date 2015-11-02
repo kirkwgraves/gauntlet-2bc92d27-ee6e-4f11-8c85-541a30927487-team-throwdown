@@ -71,7 +71,7 @@ var Human = function(name) {
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
   this.skinColor = this.skinColors[randomSkin];
 
-  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk", "Highwayman", "Ninja", "Assassin", "Thief"];
+  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk", "Highwayman", "Ninja", "Assassin", "Thief", "Shaman", "Conjurer", "Sorcerer", "Wizard"];
 };
 Human.prototype = new Player();
 

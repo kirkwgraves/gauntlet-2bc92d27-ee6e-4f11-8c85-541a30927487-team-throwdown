@@ -13,60 +13,15 @@ var PlayerClass = function() {
   }
 };
 
-/*
-    FIGHTER CLASSES
-      - Warrior
-      - Valkyrie
-      - Berserker
-      - Monk
- */
+
+//Base classes//
 var Fighter = function() {
   this.name = "Fighter";
-  this.healthBonus = 20;
-  this.strengthBonus = 10;
+  this.healthBonus = this.strengthBonus + 20;
+  this.strengthBonus = this.strengthBonus + 10;
 };
 Fighter.prototype = new PlayerClass();
 
-
-var Warrior = function() {
-  this.name = "Warrior";
-  this.healthBonus = this.healthBonus + 25;
-  this.strengthBonus = this.strengthBonus + 30;
-};
-Warrior.prototype = new Fighter();
-
-
-var Valkyrie = function() {
-  this.name = "Valkyrie";
-  this.healthBonus = this.healthBonus + 20;
-  this.strengthBonus = this.strengthBonus + 10;
-};
-Valkyrie.prototype = new Fighter();
-
-
-var Berserker = function() {
-  this.name = "Berserker";
-  this.healthBonus = this.healthBonus + 35;
-  this.strengthBonus = this.strengthBonus + 20;
-};
-Berserker.prototype = new Fighter();
-
-
-var Monk = function() {
-  this.name = "Monk";
-  this.healthBonus = this.healthBonus + 10;
-  this.strengthBonus = this.strengthBonus + 40;
-};
-Monk.prototype = new Fighter();
-
-
-/*
-    MAGICAL CLASSES
-      - Shaman
-      - Wizard
-      - Conujurer
-      - Sorcerer
- */
 var Mage = function() {
   this.name = "Mage";
   this.magical = true;
@@ -76,88 +31,107 @@ var Mage = function() {
 };
 Mage.prototype = new PlayerClass();
 
-
-var Shaman = function() {
-  this.name = "Shaman";
-  this.healthBonus = this.healthBonus + 5;
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 20;
+var Shadow = function() {
+this.name = "Shadow";
+this.healthBonus = this.healthBonus + 20;
+this.strengthBonus = this.strengthBonus - 15;
+this.intelligenceBonus = this.intelligenceBonus + 25;
 };
-Shaman.prototype = new Mage();
+Shadow.prototype = new PlayerClass();
 
+// Store human class constructors in one object to access via DOM id
 
-var Wizard = function() {
-  this.name = "Wizard";
-  this.healthBonus = this.healthBonus - 15;
-  this.strengthBonus = this.strengthBonus - 25;
-  this.intelligenceBonus = this.intelligenceBonus + 40;
+var humanClasses = {
+
+  Warrior: function() {
+    this.name = "Warrior";
+    this.healthBonus = this.healthBonus + 25;
+    this.strengthBonus = this.strengthBonus + 30;
+  },
+  Valkyrie: function() {
+    this.name = "Valkyrie";
+    this.healthBonus = this.healthBonus + 20;
+    this.strengthBonus = this.strengthBonus + 10;
+  },
+  Berserker: function() {
+    this.name = "Berserker";
+    this.healthBonus = this.healthBonus + 35;
+    this.strengthBonus = this.strengthBonus + 20;
+  },
+  Monk: function() {
+    this.name = "Monk";
+    this.healthBonus = this.healthBonus + 10;
+    this.strengthBonus = this.strengthBonus + 40;
+  },
+  Highwayman: function() {
+    this.name = "Highwayman";
+    this.healthBonus = this.healthBonus + 5;
+    this.strengthBonus = this.strengthBonus - 10;
+    this.intelligenceBonus = this.intelligenceBonus -15;
+  },
+  Ninja: function() {
+    this.name = "Ninja";
+    this.healthBonus = this.healthBonus + 15;
+    this.strengthBonus = this.strengthBonus - 5;
+    this.intelligenceBonus = this.intelligenceBonus + 5;
+  },
+  Assassin: function() {
+    this.name = "Assassin";
+    this.healthBonus = this.healthBonus + 10;
+    this.strengthBonus = this.strengthBonus - 5;
+    this.intelligenceBonus = this.intelligenceBonus + 10;
+  },
+  Thief: function() {
+    this.name = "Thief";
+    this.healthBonus = this.healthBonus -10;
+    this.strengthBonus = this.strengthBonus - 10;
+    this.intelligenceBonus = this.intelligenceBonus - 15;
+  },
+  Shaman: function() {
+    this.name = "Shaman";
+    this.healthBonus = this.healthBonus + 5;
+    this.strengthBonus = this.strengthBonus - 10;
+    this.intelligenceBonus = this.intelligenceBonus + 20;
+  },
+  Wizard: function() {
+    this.name = "Wizard";
+    this.healthBonus = this.healthBonus - 15;
+    this.strengthBonus = this.strengthBonus - 25;
+    this.intelligenceBonus = this.intelligenceBonus + 40;
+  },
+  Conjurer: function() {
+    this.name = "Conjurer";
+    this.strengthBonus = this.strengthBonus - 10;
+    this.intelligenceBonus = this.intelligenceBonus + 10;
+  },
+  Sorcerer: function() {
+    this.name = "Sorcerer";
+    this.healthBonus = this.healthBonus - 5;
+    this.strengthBonus = this.strengthBonus - 20;
+    this.intelligenceBonus = this.intelligenceBonus + 30;
+  }
+
 };
-Wizard.prototype = new Mage();
 
 
-var Conjurer = function() {
-  this.name = "Conjurer";
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus + 10;
-};
-Conjurer.prototype = new Mage();
 
 
-var Sorcerer = function() {
-  this.name = "Sorcerer";
-  this.healthBonus = this.healthBonus - 5;
-  this.strengthBonus = this.strengthBonus - 20;
-  this.intelligenceBonus = this.intelligenceBonus + 30;
-};
-Sorcerer.prototype = new Mage();
 
 
-/*
-    STEALTH CLASSES
-      - Thief
-      - Ninja
-      - Assassin
- */
-
- var Shadow = function() {
-  this.name = "Shadow";
-  this.healthBonus = this.healthBonus + 20;
-  this.strengthBonus = this.strengthBonus - 15;
-  this.intelligenceBonus = this.intelligenceBonus + 25;
- };
- Shadow.prototype = new PlayerClass();
-
-  var Highwayman = function() {
-  this.name = "Highwayman";
-  this.healthBonus = this.healthBonus + 5;
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus -15;
- };
- Highwayman.prototype = new Shadow();
-
-var Ninja = function() {
-  this.name = "Ninja";
-  this.healthBonus = this.healthBonus + 15;
-  this.strengthBonus = this.strengthBonus - 5;
-  this.intelligenceBonus = this.intelligenceBonus + 5;
-};
-Ninja.prototype = new Shadow();
-
-var Assassin = function() {
-  this.name = "Assassin";
-  this.healthBonus = this.healthBonus + 10;
-  this.strengthBonus = this.strengthBonus - 5;
-  this.intelligenceBonus = this.intelligenceBonus + 10;
-};
-Assassin.prototype = new Shadow();
-
-var Thief = function() {
-  this.name = "Thief";
-  this.healthBonus = this.healthBonus -10;
-  this.strengthBonus = this.strengthBonus - 10;
-  this.intelligenceBonus = this.intelligenceBonus - 15;
-};
-Thief.prototype = new Shadow();
 
 
+
+humanClasses.Warrior.prototype = new Fighter();
+humanClasses.Valkyrie.prototype = new Fighter();
+humanClasses.Berserker.prototype = new Fighter();
+humanClasses.Monk.prototype = new Fighter();
+humanClasses.Highwayman.prototype = new Shadow();
+humanClasses.Ninja.prototype = new Shadow();
+humanClasses.Assassin.prototype = new Shadow();
+humanClasses.Thief.prototype = new Shadow();
+humanClasses.Warrior.prototype = new Fighter();
+humanClasses.Shaman.prototype = new Mage();
+humanClasses.Wizard.prototype = new Mage();
+humanClasses.Conjurer.prototype = new Mage();
+humanClasses.Sorcerer.prototype = new Mage();
 
