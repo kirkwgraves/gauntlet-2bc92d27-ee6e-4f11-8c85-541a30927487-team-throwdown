@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
  //   Show the initial view that accepts player name
@@ -15,8 +14,8 @@ $(document).ready(function() {
    */
 
   $(".card__link").click(function(e) {
-    var nextCard = $(this).attr("next");
     var moveAlong = true;
+    var nextCard = $(this).attr("next");
 
     switch (nextCard) {
       case "card--class":
@@ -75,37 +74,46 @@ $(document).ready(function() {
         $(".attack__link").on("click", function(e) {
           
           var win = function() {
-            $("#playerWins").removeClass(".isHidden");
+            $("#playerWins").show();
           }
 
           var lose = function() {
-            $("#enemyWins").removeClass(".isHidden");
+            $("#enemyWins").show();
           }
 
           var tie = function() {
-            $("#tie").removeClass(".isHidden");          
+            $("#tie").show();          
           }
           
+          if (myEnemy.health <= 0 && myPlayer.health > 0) {
+            win();
+          } else if (myPlayer.health <= 0 && myEnemy.health > 0) {
+            lose();
+          } else if (myPlayer.health <= 0 && myEnemy.health <=0) {
+            tie();
+          } else {
 
             // Decrement myPlayer's health after attack
-            myPlayer.health -= Math.round((myEnemy.weapon.damage + myPlayer.strength - 75) - (myPlayer.intelligence/6));
+            myPlayer.health -= Math.round((myEnemy.weapon.damage + myPlayer.strength - 35) - (myPlayer.intelligence/6));
             // Decrement myEnemy's health after attack
             myEnemy.health -= Math.round((myPlayer.weapon.damage + myEnemy.strength - 65) - (myEnemy.intelligence/6));
 
           $("#playerDiv").text("YOUR HEALTH: " + myPlayer.health);
           $("#enemyDiv").text("YOUR ENEMY'S HEALTH: " + myEnemy.health);
-           
+          
+          }
+        
         });
+      
       } 
+
+      if (moveAlong) {
+        $(".card").hide();
+        $("." + nextCard).show();
+      }
         
     });
 
-
-    if (moveAlong) {
-      $(".card").hide();
-      $("." + nextCard).show();
-    }
-  });
 
   /*
     When the back button clicked, move back a view
@@ -115,5 +123,4 @@ $(document).ready(function() {
     $(".card").hide();
     $("." + previousCard).show();
   });
-
 });

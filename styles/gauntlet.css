@@ -113,3 +113,15 @@ body {
   padding-top: 200px;
   padding-bottom: 200px;
 }
+
+#playerWins {
+  text-align: center;
+}
+
+#enemyWins {
+  text-align: center;
+}
+
+#tie {
+  text-align: center;
+}
