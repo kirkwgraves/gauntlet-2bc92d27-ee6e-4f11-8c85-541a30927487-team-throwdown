@@ -104,6 +104,7 @@ Human.prototype = new Player();
   constructor function.
  */
 var Monster = function() {
+  this.allowedWeapons = ["Dagger", "BroadSword", "WarAxe"];
   this.health = this.health - 30;
   this.intelligence = this.intelligence -20;
   this.strength = this.strength + 30;

@@ -166,7 +166,7 @@
         </a>
       </div>
       <div class="card__button">
-        <a class="weaopon__link btn btn--big btn--blue" href="#" playerWeapon="broad_sword">
+        <a class="weapon__link btn btn--big btn--blue" href="#" playerWeapon="broad_sword">
           <span class="btn__prompt">></span>
           <span class="btn__text">Broad Sword</span>
         </a>
@@ -182,7 +182,50 @@
       </div>
     </section>
 
-    <section id="battleground" class="card card--battleground"></section>
+    <section id="battleground" class="card card--battleground">
+      <div class="card__prompt">
+        <div>Annihilate your enemy</div>
+          <a class="card__back btn btn--small"
+             href="#"
+             previous="card--weapon">
+            <span class="btn__prompt">&lt;</span>
+            <span class="btn__text">Back</span>
+          </a>
+        </div>
+      
+      <div class="row">
+        
+        <div class="col-md-6" id="playerDiv">
+          <span>YOUR HEALTH: </span>
+        </div>
+
+
+        <div class="col-md-6" id="enemyDiv">
+          <span>YOUR ENEMY'S HEALTH: </span>
+        </div>
+
+        <div id="playerWins" class="isHidden">
+          <span>YOU WIN</span>
+        </div>
+
+        <div id="enemyWins" class="isHidden">
+          <span>YOU'VE BEEN DESTROYED</span>
+        </div>
+
+        <div id="tie" class="isHidden">
+          <span>EVERYONE, LITERALLY EVERYONE, HAS BEEN DESTROYED</span>
+        </div>
+        
+      <div class="card__button">
+        <a class="attack__link btn btn--big btn--orange"
+          href="#"
+          next="#">
+          <span class="btn__prompt">></span>
+          <span class="btn__text">ATTACK!!!</span>
+        </a>
+      </div>
+
+    </section>
 
   </article>
 
