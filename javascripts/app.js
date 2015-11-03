@@ -21,13 +21,27 @@ $(document).ready(function() {
 
     switch (nextCard) {
       case "card--class":
-        var playerName = $("#player-name").val();
-        moveAlong = ($("player-name").val() !== "");
-        
-        $(".class__link").on("click", function(e) {
+          var playerName = $("#player-name").val();
+          moveAlong = ($("player-name").val() !== "");
+          
+          // Instantiate new Player (protagonist) object
           myPlayer = new Human(playerName);
           console.log('myPlayer', myPlayer);
-          if ($.inArray($(this).attr("playerPath"), myPlayer.allowedClasses) !== -1) {
+          
+          myEnemy = new Orc();
+          // console.log('myEnemy', myEnemy);
+          
+          myEnemy.generateClass();
+          // console.log('myEnemy', myEnemy);
+
+          myEnemy.health += myEnemy.class.healthBonus;
+          myEnemy.strength += myEnemy.class.strengthBonus;
+          myEnemy.intelligence += myEnemy.class.intelligenceBonus;          
+          console.log('myEnemy with updated stats', myEnemy);
+
+        $(".class__link").on("click", function(e) {
+          
+          if ($.inArray($(this).attr("playerPath")), myPlayer.allowedClasses !== -1) {
             myPlayer.setClass($(this).attr("playerPath"));
           }
 
@@ -35,12 +49,10 @@ $(document).ready(function() {
           myPlayer.strength += myPlayer.class.strengthBonus;
           myPlayer.intelligence += myPlayer.class.intelligenceBonus;
           
-          console.log("myPlayer with class", myPlayer);
-          console.log("new Health", myPlayer.health);  
+          console.log("myPlayer", myPlayer);
+          console.log("myPlayer Updated Health", myPlayer.health);
+          console.log('myPlayer Updated Intelligence', myPlayer.intelligence);  
           
-          if ($(this).attr("playerPath") === "surprise") {
-            myPlayer.generateClass();
-          }
         });
         break;
       
@@ -48,15 +60,17 @@ $(document).ready(function() {
         
         $(".weapon__link").on("click", function(e) {
           if ($(this).attr("playerWeapon") === "dagger") {
-            myPlayer.setWeapon("Dagger");
+            myPlayer.weapon = new Dagger();
           } else if ($(this).attr("playerWeapon") === "war_axe") {
-            myPlayer.setWeapon("WarAxe");
+            myPlayer.weapon = new WarAxe();
           } else { 
-            myPlayer.setWeapon("BroadSword");
+            myPlayer.weapon = new BroadSword();
           }
             console.log('myPlayer', myPlayer);
         });
         break;
+
+      case 
     }
 
 

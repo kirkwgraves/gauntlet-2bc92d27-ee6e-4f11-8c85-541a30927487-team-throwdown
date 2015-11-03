@@ -53,9 +53,32 @@ Player.prototype.generateClass = function() {
   return this.class;
 };
 
-Player.prototype.setClass = function(chosenClass) {
-  this.class = chosenClass;
-}
+Player.prototype.setClass = function(chosenClass) {  
+  if (chosenClass == "Warrior") {
+    this.class = new Warrior();
+  } else if (chosenClass == "Valkyrie") {
+    this.class = new Valkyrie();
+  } else if (chosenClass == "Berserker") {
+    this.class = new Berserker();
+  } else if (chosenClass == "Monk") {
+    this.class = new Monk();
+  } else if (chosenClass == "Conjurer") {
+    this.class = new Conjurer();
+  } else if (chosenClass == "Wizard") {
+    this.class = new Wizard();
+  } else if (chosenClass == "Sorcerer") {
+    this.class = new Sorcerer();
+  } else if (chosenClass == "Thief") {
+    this.class = new Thief();
+  } else if (chosenClass == "Ninja") {
+    this.class = new Ninja();
+  } else if (chosenClass == "Assassin") {
+    this.class = new Assassin();
+  } else if (chosenClass == "surprise") {
+    this.class = this.generateClass();
+  }  
+};
+  
 
 /*
   Define the base properties for a human in a 
